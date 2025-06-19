@@ -6,8 +6,13 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/05/28 09:01:55 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:36:35 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+int main() {
+    std::cout << "==== Test 1: ====" << std::endl;
+    
+}
