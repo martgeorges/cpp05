@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/06/20 09:56:43 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/06/24 06:59:14 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+
 class Bureaucrat
 {
     private:

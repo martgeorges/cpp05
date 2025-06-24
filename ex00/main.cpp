@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/06/20 10:57:31 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/06/24 08:27:27 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,14 @@ int main() {
 
     std::cout << a << std::endl;
     std::cout << b << std::endl;
+    std::cout << "\033[33m" << std::endl << "Test too high and too low creation" << "\033[0m" << std::endl;
+	try
+	{
+		Bureaucrat Sleeper1("Bernd", 0);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
     return 0;
 }
