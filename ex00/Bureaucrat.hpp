@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/07/03 07:02:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:13:17 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Bureaucrat
         std::string getName() const;
         int getGrade() const;
 
-        int incrementGrade();
-        int decrementGrade();
+        void incrementGrade();
+        void decrementGrade();
 
         class GradeTooHighException : public std::exception {
             public:

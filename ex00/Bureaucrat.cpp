@@ -6,13 +6,13 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:30 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/07/03 07:02:04 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:26:53 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name) {
     std::cout << "Bureaucrat constructor called" << std::endl;
     if (grade < 1)
 		throw GradeTooHighException();
@@ -46,27 +46,23 @@ int Bureaucrat::getGrade() const {
     return (this->_grade); 
 }
 
-int Bureaucrat::incrementGrade() {
-    if (_grade < 1)
+void Bureaucrat::incrementGrade() {
+    if (_grade == 1)
     {
-        std::cout << "grade too high" << std::endl;
-    } else {
+        throw GradeTooHighException();
+    } else
         _grade--;
-    }
-    return (_grade);
 }
 
-int Bureaucrat::decrementGrade() {
-    if (_grade > 150) {
-        std::cout << " grade too low " << std::endl;
-    } else {
+void Bureaucrat::decrementGrade() {
+    if (_grade == 150) {
+        throw GradeTooLowException();
+    } else
         _grade++;
-    }
-    return (_grade);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
     return os;
 }   
 
