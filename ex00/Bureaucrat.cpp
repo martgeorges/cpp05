@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:01:30 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/06/24 08:27:48 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/07/03 07:02:04 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ Bureaucrat::~Bureaucrat() {
 
 Bureaucrat & Bureaucrat::operator = (const Bureaucrat &src) {
     //std::cout << getName() << " bureaucrat grade " << getGrade() << "." << std::endl;
-    this->_grade = src._grade;
+    if (this != &src)
+        _grade = src._grade;
     return *this;
 }
 
@@ -45,26 +46,36 @@ int Bureaucrat::getGrade() const {
     return (this->_grade); 
 }
 
-int Bureaucrat::incrementGrade(int grade) {
-    if (grade < 1)
+int Bureaucrat::incrementGrade() {
+    if (_grade < 1)
     {
         std::cout << "grade too high" << std::endl;
     } else {
-        grade--;
+        _grade--;
     }
-    return (grade);
+    return (_grade);
 }
 
-int Bureaucrat::decrementGrade(int grade) {
-    if (grade > 150) {
+int Bureaucrat::decrementGrade() {
+    if (_grade > 150) {
         std::cout << " grade too low " << std::endl;
     } else {
-        grade++;
+        _grade++;
     }
-    return (grade);
+    return (_grade);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 }   
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high!");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low!");
+}
